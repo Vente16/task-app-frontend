@@ -1,0 +1,93 @@
+.content-tasks{
+    width: 95% !important;
+    margin: 2%;
+}
+
+.pending{
+    background: #faad14;
+    color: #fff;
+    padding:  2%;
+}
+
+.progress{
+
+    background: #1890ff;
+    color: #fff;
+    padding:  2%;
+}
+
+.completed{
+    background: #52c41a;
+    color: #fff;
+    padding:  2%;
+}
+
+.task-card{
+    min-height: 210px;
+    margin: 2%;
+}
+
+.icon-higth{
+    color:#ff4d4f;
+}
+
+.icon-medium{
+    color:#faad14;
+    margin-top: 2%;
+}
+
+.icon-low{
+    color:#1890ff;
+}
+
+
+.medium{
+    background-color: #fffbe6;
+    border: 1px solid #ffe58f;
+    padding: 10px;
+    text-align: center;
+    margin-left: 4%;
+    cursor: pointer;
+    width: 30%;
+}
+.low{
+    background-color: #e6f7ff;
+    border: 1px solid #91d5ff;
+    padding: 10px;
+    text-align: center;
+    margin-left: 4%;
+    cursor: pointer;
+    width: 30%;
+}
+.hight{
+    background-color: #fff2f0;
+    border: 1px solid #ffccc7;
+    padding: 10px;
+    text-align: center;
+    margin-left: 4%;
+    cursor: pointer;
+    width: 30%;
+}
+
+
+
+.dateDue{
+    margin-left: 4%;
+    margin-bottom: 1%;
+    width: 40%;
+    cursor: pointer;
+}
+
+.nav{
+    background-color: #015b7e !important;
+    box-shadow: 0px 1px 10px #999;
+}
+
+.button-add{
+    margin-left: 2%;
+}
+
+.closed-sesion{
+    font-size: 16px !important;
+    cursor: pointer;
+}

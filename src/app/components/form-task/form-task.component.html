@@ -1,0 +1,78 @@
+<form *ngIf="info.type === 'register' || info.type === 'update'" [formGroup]="myForm" class="form-field-full" (ngSubmit)="onSubmit()">
+    <mat-form-field [class.invalid-field-basic]="myForm.get('name').invalid && submitted" class="searchDocument">
+        <mat-label>Nombre de la tarea</mat-label>
+        <input matInput placeholder="Ingresa nombre de la tarea"
+         formControlName="name"
+         autocomplete="off"
+         required>
+
+        <!-- <mat-error  *ngIf="myForm.get('document').hasError('minlength') &&
+        myForm.get('document').invalid &&
+        myForm.get('document').touched  &&
+        presedSearch
+        ">
+        La cédula debe contener mínimo 6 caracteres <br>
+        </mat-error> -->
+
+        <!-- <mat-error  *ngIf="myForm.get('document').hasError('maxlength') &&
+        myForm.get('document').invalid &&
+        myForm.get('document').touched  &&
+        presedSearch
+        ">
+        La cédula debe contener máximo 10 caracteres <br>
+        </mat-error> -->
+
+        <mat-error *ngIf="myForm.get('name').hasError('required') &&
+        myForm.get('name').invalid && submitted
+        ">
+        Por favor ingresa nombre para la tarea
+        </mat-error>
+
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Descripción (Opcional)</mat-label>
+        <textarea formControlName="description" matInput placeholder=""></textarea>
+    </mat-form-field>
+
+    <mat-form-field [class.invalid-field-basic]="myForm.get('priority').invalid && submitted">
+        <mat-label>Prioridad</mat-label>
+        <mat-select formControlName="priority">
+          <mat-option *ngFor="let priority of myPrioryties" [value]="priority.value">
+            {{priority.name}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="myForm.get('priority').hasError('required') &&
+        myForm.get('priority').invalid && submitted
+        ">
+        Por favor selecciona la prioridad
+        </mat-error>
+
+    </mat-form-field>
+
+    <mat-form-field [class.invalid-field-basic]="myForm.get('dateExpired').invalid && submitted">
+        <mat-label>Fecha de vencimiento</mat-label>
+        <input formControlName="dateExpired" matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="myForm.get('dateExpired').hasError('required') &&
+        myForm.get('dateExpired').invalid && submitted
+        ">
+        Por favor indica la fecha de vencimiento
+        </mat-error>
+
+      </mat-form-field><br>
+
+      <mat-error *ngIf="error" class="error">
+        Ha ocurrido un error <br>
+      </mat-error>
+
+      <app-spinner *ngIf="loading"></app-spinner>
+
+      <button mat-raised-button color="primary" type="submit">
+         {{ (info.type === 'register') ? 'REGISTRAR TAREA' : 'ACTUALIZAR TAREA' }}
+      </button>
+
+</form>
+
+

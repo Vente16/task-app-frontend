@@ -1,0 +1,26 @@
+<div [ngSwitch]="info.type">
+    <h3  *ngSwitchCase="'register'"> REGISTRAR TAREA</h3>
+    <h3  *ngSwitchCase="'update'">  ACTUALIZAR TAREA</h3>
+    <h3  *ngSwitchCase="'delete'"> ELIMINAR TAREA </h3>
+</div>
+
+
+<app-form-task
+[info]="info"
+(emitmodal)="getInfo($event)"></app-form-task>
+
+<div *ngIf="info.type === 'delete'">
+    <h1 mat-dialog-title> ¿Seguro/a desea eliminar esta tarea?</h1>
+  <!-- <div mat-dialog-content>
+    <p>What's your favorite animal?</p>
+    <mat-form-field>
+      <mat-label>Favorite Animal</mat-label>
+      <input matInput [(ngModel)]="data.animal">
+    </mat-form-field>
+  </div> -->
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancelar</button>
+    <button class="deleteTask" mat-button [mat-dialog-close]="'true'" cdkFocusInitial>Aceptar</button>
+  </div>
+
+  </div>

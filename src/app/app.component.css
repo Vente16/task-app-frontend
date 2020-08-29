@@ -1,0 +1,27 @@
+.content-tasks{
+    width: 95% !important;
+    margin: 2%;
+}
+
+.pending{
+    background: #faad14;
+    color: #fff;
+    padding:  2%;
+}
+
+.progress{
+
+    background: #1890ff;
+    color: #fff;
+    padding:  2%;
+}
+
+.completed{
+    background: #52c41a;
+    color: #fff;
+    padding:  2%;
+}
+
+.task-card{
+    min-height: 210px;
+}

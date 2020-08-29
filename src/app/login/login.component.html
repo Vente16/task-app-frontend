@@ -1,0 +1,37 @@
+
+    <div class="wrapper">
+      <div id="box" [class.form-in]="isFormLogin" [class.form-out]="!isFormLogin">
+        <img src="https://img.favpng.com/25/13/7/action-item-computer-icons-task-clip-art-png-favpng-SjAFx4s2Y7XDNFH4eBfpFaeET.jpg" alt="lock" />
+        <h3>{{ (!changeForm) ? 'INICIAR SESIÓN' : 'REGISTRAR CUENTA'}}</h3>
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+          <input *ngIf="changeForm" type="text" formControlName="name" placeholder="Nombre" />
+          <span class="error" *ngIf="myForm.get('name').hasError('required') &&
+          submitted">El nombre es requerido</span>
+
+          <span class="error" *ngIf="myForm.get('name').hasError('minlength') &&
+          submitted">El nombre debe tener minimo 3 caracteres</span>
+
+          <input type="email" placeholder="Correo" formControlName="email" />
+          <span class="error" *ngIf="myForm.get('email').hasError('required') &&
+          submitted">El correo es requerido</span>
+          <span class="error" *ngIf="myForm.get('email').hasError('pattern') &&
+          submitted">Formato de correo invávalido</span>
+
+          <input type="password" placeholder="Contraseña" formControlName="password" (keydown.space)="$event.preventDefault();"  />
+          <span class="error" *ngIf="myForm.get('password').hasError('required') &&
+          submitted">La contraseña es requerida</span>
+          <app-spinner *ngIf="loading"></app-spinner>
+          <!-- <span class="error-adverdence" *ngIf="error"><br>{{errorMessage}}<br></span> -->
+          <div class="error-adverdence" *ngIf="error">{{errorMessage}}</div>
+
+         <input *ngIf="!loading" class="submitButton" [class.button-sing]="changeForm" type="submit"
+         [value]="(!changeForm) ? 'iniciar sesión': 'Registrar'"/>
+        </form>
+
+
+        <div class="signup">
+          <p> <button (click)="singForm()">{{(!changeForm) ? 'Regístrate': 'Volver'}}</button></p>
+        </div>
+      </div>
+    </div>
+

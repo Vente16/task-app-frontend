@@ -1,0 +1,12 @@
+.invalid-field-basic{
+    margin-bottom: 10px;
+  }
+
+  .form-field-full .mat-form-field{
+    width: 95% !important;
+}
+
+.error{
+  margin-bottom: 3%;
+  margin-top: 3%;
+}
